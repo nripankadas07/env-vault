@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 from typing import Dict, Optional
 
-from cryptography.fernet import Fernet, InvalidToken
+from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
@@ -139,7 +139,9 @@ class Vault:
         self.path.write_bytes(vault_data)
         return self.path
 
-    def decrypt_file(self, password: str, output_path: Optional[str | Path] = None) -> str:
+    def decrypt_file(
+        self, password: str, output_path: Optional[str | Path] = None
+    ) -> str:
         """Decrypt the vault file and optionally write the result.
 
         Args:

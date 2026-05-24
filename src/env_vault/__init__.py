@@ -2,4 +2,4 @@
 
 __version__ = "0.1.0"
 
-from env_vault.vault import Vault
+from env_vault.vault import Vault as Vault

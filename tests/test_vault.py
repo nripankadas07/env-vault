@@ -22,7 +22,7 @@ class TestParseEnv:
         assert env == {"DB_HOST": "localhost", "DB_PORT": "5432"}
 
     def test_quoted_values(self) -> None:
-        content = 'SECRET="my secret value"\nOTHER=\'single quoted\'\n'
+        content = "SECRET=\"my secret value\"\nOTHER='single quoted'\n"
         env = parse_env(content)
         assert env["SECRET"] == "my secret value"
         assert env["OTHER"] == "single quoted"

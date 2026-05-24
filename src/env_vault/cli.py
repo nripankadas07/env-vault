@@ -7,7 +7,7 @@ from pathlib import Path
 
 import click
 
-from env_vault.vault import Vault, parse_env, serialize_env
+from env_vault.vault import Vault
 
 
 @click.group()
@@ -22,12 +22,15 @@ def main() -> None:
 @main.command()
 @click.argument("env_file", type=click.Path(exists=True, path_type=Path))
 @click.option(
-    "--output", "-o",
+    "--output",
+    "-o",
     type=click.Path(path_type=Path),
     default=None,
     help="Output vault file path (default: <env_file>.vault).",
 )
-@click.option("--password", "-p", prompt=True, hide_input=True, confirmation_prompt=True)
+@click.option(
+    "--password", "-p", prompt=True, hide_input=True, confirmation_prompt=True
+)
 def encrypt(env_file: Path, output: Path | None, password: str) -> None:
     """Encrypt a .env file into a vault."""
     vault_path = output or Path(str(env_file) + ".vault")
@@ -39,7 +42,8 @@ def encrypt(env_file: Path, output: Path | None, password: str) -> None:
 @main.command()
 @click.argument("vault_file", type=click.Path(exists=True, path_type=Path))
 @click.option(
-    "--output", "-o",
+    "--output",
+    "-o",
     type=click.Path(path_type=Path),
     default=None,
     help="Output .env file path (default: stdout).",
