@@ -1,7 +1,5 @@
 # env-vault
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)](#testing)
 
 Encrypted `.env` file manager. Encrypt your environment secrets with a password, then decrypt, query, and modify individual keys â all without exposing plaintext files.
 
